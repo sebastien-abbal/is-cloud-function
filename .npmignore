@@ -1,3 +1,8 @@
+# Only for development
+/src
+/.github
+/__tests
+
 # Logs
 logs
 *.log
