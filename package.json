@@ -1,12 +1,12 @@
 {
   "name": "is-cloud-function",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "A package who returns if your code is running on a cloud function (AWS, Google, Azure)",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
     "build": "rimraf lib && tsc --project tsconfig.build.json",
-    "deploy": "npm publish",
+    "deploy": "yarn build && npm publish",
     "test": "jest"
   },
   "author": {
