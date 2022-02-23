@@ -7,6 +7,8 @@ This is a package who returns a boolean if your code is running on a cloud funct
 #### Installation
 
 ```
+$ npm install is-cloud-function
+// or
 $ yarn add is-cloud-function
 ```
 
@@ -69,13 +71,17 @@ if (isCloudFunction({ type: 'PROVIDER' }) === 'AWS') {
 
 ---
 
-#### Example n°3:  Best practices
+#### Example n°3: Best practices
 
-> ⚠️  Set the values from the enums represents a better practice than the "[magic variables](https://en.wikipedia.org/wiki/Magic_number_%28programming%29)".
+> ⚠️ Set the values from the enums represents a better practice than the "[magic variables](https://en.wikipedia.org/wiki/Magic_number_%28programming%29)".
+
 ```typescript
-import { isCloudFunction, ICF_EnumConfigType } from  'is-cloud-function';
+import { isCloudFunction, ICF_EnumConfigType } from 'is-cloud-function';
 
-if (isCloudFunction({ type:  ICF_EnumConfigType.PROVIDER }) === ICF_EnumProviderType.AZURE) {
+if (
+  isCloudFunction({ type: ICF_EnumConfigType.PROVIDER }) ===
+  ICF_EnumProviderType.AZURE
+) {
   // ... your logic ...
 }
 ```
