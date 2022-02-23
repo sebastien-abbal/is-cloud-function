@@ -9,5 +9,3 @@ export function isCloudFunction<T extends ICFConfigReturnType>(config?: {
     return (isCloudFunction ? isCloudFunction : null) as ICFResult<T>;
   return Boolean(isCloudFunction) as ICFResult<T>;
 }
-
-isCloudFunction({ returnType: 'boolean' });
