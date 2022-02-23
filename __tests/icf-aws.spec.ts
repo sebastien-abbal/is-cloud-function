@@ -1,4 +1,4 @@
-import { isCloudFunction } from '../src';
+import { ICF_EnumConfigType, isCloudFunction } from '../src';
 
 describe('Tests - AWS Lambdas', () => {
   describe('With AWS env variables', () => {
@@ -15,10 +15,12 @@ describe('Tests - AWS Lambdas', () => {
 
     it('should return true', () => {
       expect(isCloudFunction()).toBe(true);
-      expect(isCloudFunction({ returnType: 'boolean' })).toBe(true);
+      expect(isCloudFunction({ type: ICF_EnumConfigType.BOOLEAN })).toBe(true);
     });
     it('should return AWS', () => {
-      expect(isCloudFunction({ returnType: 'provider' })).toBe('AWS');
+      expect(isCloudFunction({ type: ICF_EnumConfigType.PROVIDER })).toBe(
+        'AWS',
+      );
     });
 
     afterAll(() => {
@@ -28,8 +30,8 @@ describe('Tests - AWS Lambdas', () => {
 
   describe('Without AWS env variables', () => {
     it('should return false', () => {
-      expect(isCloudFunction({ returnType: 'provider' })).toBe(null);
-      expect(isCloudFunction({ returnType: 'boolean' })).toBe(false);
+      expect(isCloudFunction({ type: ICF_EnumConfigType.PROVIDER })).toBe(null);
+      expect(isCloudFunction({ type: ICF_EnumConfigType.BOOLEAN })).toBe(false);
       expect(isCloudFunction()).toBe(false);
     });
   });

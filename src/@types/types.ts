@@ -1,7 +1,5 @@
-export type ICFProviderType = 'AWS' | 'GOOGLE' | 'AZURE';
+export type ICF_ProviderType = 'AWS' | 'GOOGLE' | 'AZURE';
 
-export type ICFConfigReturnType = 'boolean' | 'provider';
+export type ICF_ConfigType = 'PROVIDER' | 'BOOLEAN';
 
-export type ICFResult<T extends ICFConfigReturnType> = T extends ICFProviderType
-  ? ICFProviderType
-  : boolean;
+export type ICF_Result<T> = T extends 'BOOLEAN' ? boolean : ICF_ProviderType;

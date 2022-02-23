@@ -1,4 +1,4 @@
-import { isCloudFunction } from '../src';
+import { ICF_EnumConfigType, isCloudFunction } from '../src';
 
 describe('Tests - GOOGLE Lambdas', () => {
   describe('With GOOGLE env variables', () => {
@@ -11,10 +11,12 @@ describe('Tests - GOOGLE Lambdas', () => {
 
     it('should return true', () => {
       expect(isCloudFunction()).toBe(true);
-      expect(isCloudFunction({ returnType: 'boolean' })).toBe(true);
+      expect(isCloudFunction({ type: ICF_EnumConfigType.BOOLEAN })).toBe(true);
     });
     it('should return GOOGLE', () => {
-      expect(isCloudFunction({ returnType: 'provider' })).toBe('GOOGLE');
+      expect(isCloudFunction({ type: ICF_EnumConfigType.PROVIDER })).toBe(
+        'GOOGLE',
+      );
     });
 
     afterAll(() => {
@@ -24,8 +26,8 @@ describe('Tests - GOOGLE Lambdas', () => {
 
   describe('Without GOOGLE env variables', () => {
     it('should return false', () => {
-      expect(isCloudFunction({ returnType: 'provider' })).toBe(null);
-      expect(isCloudFunction({ returnType: 'boolean' })).toBe(false);
+      expect(isCloudFunction({ type: ICF_EnumConfigType.PROVIDER })).toBe(null);
+      expect(isCloudFunction({ type: ICF_EnumConfigType.BOOLEAN })).toBe(false);
       expect(isCloudFunction()).toBe(false);
     });
   });
