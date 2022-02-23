@@ -1,6 +1,6 @@
 {
   "name": "is-cloud-function",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A package who returns if your code is running on a cloud function (AWS, Google, Azure)",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

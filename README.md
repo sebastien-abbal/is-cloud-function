@@ -14,6 +14,7 @@ $ yarn add is-cloud-function
 
 ```typescript
 import { isCloudFunction } from 'is-cloud-function';
+
 console.log(isCloudFunction());
 ```
 
@@ -35,7 +36,7 @@ console.log(isCloudFunction());
 You can manage a specific configuration to the `isCloudFunction` :
 
 - **Config**
-  - returnType: `provider` | `boolean` (default: `boolean`)
+  - type: `PROVIDER` | `BOOLEAN` (default: `BOOLEAN`)
 
 ---
 
@@ -49,7 +50,7 @@ if (isCloudFunction() === true) {
 }
 
 // Same like example above
-if (isCloudFunction({ returnType: 'boolean' }) === true) {
+if (isCloudFunction({ type: 'BOOLEAN' }) === true) {
   // ... your logic ...
 }
 ```
@@ -61,7 +62,20 @@ if (isCloudFunction({ returnType: 'boolean' }) === true) {
 ```typescript
 import { isCloudFunction } from 'is-cloud-function';
 
-if (isCloudFunction({ returnType: 'provider' }) === 'AWS') {
+if (isCloudFunction({ type: 'PROVIDER' }) === 'AWS') {
+  // ... your logic ...
+}
+```
+
+---
+
+#### Example n°3:  Best practices
+
+> ⚠️  Set the values from the enums represents a better practice than the "[magic variables](https://en.wikipedia.org/wiki/Magic_number_%28programming%29)".
+```typescript
+import { isCloudFunction, ICF_EnumConfigType } from  'is-cloud-function';
+
+if (isCloudFunction({ type:  ICF_EnumConfigType.PROVIDER }) === ICF_EnumProviderType.AZURE) {
   // ... your logic ...
 }
 ```
