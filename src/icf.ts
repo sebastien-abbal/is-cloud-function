@@ -11,7 +11,7 @@ export function isCloudFunction<
 >(config?: ICF_IConfig<T>): ICF_Result<T> {
   const isCloudFunction = checkProvider();
   if (config?.type === ICF_EnumConfigType.PROVIDER) {
-    return (isCloudFunction ? isCloudFunction : null) as ICF_Result<T>;
+    return (isCloudFunction ?? null) as ICF_Result<T>;
   } else {
     return Boolean(isCloudFunction) as ICF_Result<T>;
   }
