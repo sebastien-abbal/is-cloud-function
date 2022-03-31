@@ -4,12 +4,12 @@ import {
   ICF_IConfig,
   ICF_Result,
 } from './@types';
-import { providerCheck } from './utils/provider-check';
+import { checkProvider } from './utils/check-provider';
 
 export function isCloudFunction<
   T extends ICF_ConfigType = ICF_EnumConfigType.BOOLEAN,
 >(config?: ICF_IConfig<T>): ICF_Result<T> {
-  const isCloudFunction = providerCheck();
+  const isCloudFunction = checkProvider();
   if (config?.type === ICF_EnumConfigType.PROVIDER) {
     return (isCloudFunction ? isCloudFunction : null) as ICF_Result<T>;
   } else {
